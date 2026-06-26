@@ -18,8 +18,8 @@ Tambien se trabajo el flujo completo de envio y almacenamiento de datos de forma
 - `resources/views/ideas.blade.php`
 
 ### Evidencia
-- [ ] Captura del formulario de ideas.
-- [ ] Captura de la lista con ideas enviadas.
+- [ ] Captura del formulario de ideas [docs/img/ideas.png](docs/img/ideas.png)
+- [ ] Captura de la lista de routas.[docs/img/webs.png](docs/img/webs.png)
 
 ### Problemas encontrados y solucion
 - Al mostrar las ideas almacenadas se identifico que los datos se estaban guardando como cadenas de texto en session, por lo que en la vista era necesario imprimir cada elemento directamente y no intentar acceder a una propiedad como si fuera un objeto.
