@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Idea;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreIdeaRequest;
 
 class IdeaController extends Controller
 {
@@ -30,11 +31,8 @@ class IdeaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreIdeaRequest $request)
         {
-    $attributes = $request->validate([
-        'idea' => 'required|string|max:255|min:5',
-    ]);
 
     $attributes['state'] = 'pending';
 
