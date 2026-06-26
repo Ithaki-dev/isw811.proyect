@@ -6,38 +6,59 @@ use Illuminate\Support\Facades\Route;
 
 use App\Models\Idea;
 
-
-Route::get('/', function () {
+//Get all ideas
+Route::get('/ideas', function () {
     //$ideas = session('ideas', []);
 
-    $ideas = Idea::query()
-        ->when(request('state'), function ($query, $state) {
-            $query->where('state', $state);
-        })
-        ->get();
-        
+    $ideas = Idea::all();
 
     //dd($ideas);
 
-    return view('ideas', [
+    return view('ideas.index', [
         'ideas' => $ideas,
     ]);
 });
 
-Route::post('/ideas', function () {
-    // Handle the form submission here
-
-    $idea = request('idea');
-
-    Idea::create([
+//Get a single idea
+Route::get('/ideas/{idea}', function (Idea $idea) {
+    return view('ideas.show', [
         'idea' => $idea,
-        'state'=> 'pending',
     ]);
-
-    return redirect('/');
 });
 
-Route::get('delete-ideas', function () {
-    Idea::truncate();
-    return redirect('/');
+
+//Edit an idea by id
+Route::get('/ideas/{idea}/edit', function (Idea $idea) {
+    return view('ideas.edit', [
+        'idea' => $idea,
+    ]);
+});
+
+
+//Update an idea by id
+Route::patch('/ideas/{idea}', function (Idea $idea) {
+    $idea->update([
+        'idea' => request('idea'),
+    ]);
+
+    return redirect('/ideas');
+});
+
+
+//Create a new idea
+Route::post('/ideas', function () {
+    $attributes = request()->validate([
+        'idea' => 'required',
+    ]);
+
+    Idea::create($attributes);
+
+    return redirect('/ideas');
+});
+
+//Delete an idea by id
+Route::delete('/ideas/{idea}', function (Idea $idea) {
+    $idea->delete();
+
+    return redirect('/ideas');
 });
