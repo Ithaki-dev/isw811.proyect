@@ -14,7 +14,7 @@
 			@endforeach
 		</ul>
 		<div class="mt-6">
-			<button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="window.location.href='/ideas/create'">Add New Idea</button>
+			<button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="window.location.href='/create'">Add New Idea</button>
 		</div>
 	@endif	
 </x-layout>
