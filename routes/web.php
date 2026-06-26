@@ -24,7 +24,7 @@ Route::patch('/ideas/{idea}', [IdeaController::class, 'update']);
 
 //Create a new idea form
 
-Route::get('/ideas/create', [IdeaController::class, 'create']);
+Route::get('/create', [IdeaController::class, 'create']);
 
 //Create a new idea
 Route::post('/ideas', [IdeaController::class, 'store']);
