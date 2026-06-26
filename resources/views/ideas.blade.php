@@ -10,15 +10,19 @@
 
 		<button type="submit">Submit</button>
 	</form>
-	<div class="mt-6 border-t border-gray-200 pt-6">
-		<ul>
+
+
+	@if ($ideas->isEmpty())
+		<p class="mt-6">No ideas yet.</p>
+	@else
+		<ul class="mt-6 space-y-4">
 			@foreach ($ideas as $idea)
-				<li>{{ $idea }}</li>
+				<li class="border border-gray-300 rounded-lg p-4">
+					{{ $idea->idea }}
+				</li>
 			@endforeach
 		</ul>
-	</div>
-
-
+	@endif
 	<form method="GET" action="delete-ideas">
 		@csrf
 		<button type="submit">Delete all ideas</button>
