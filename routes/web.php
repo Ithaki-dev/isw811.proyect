@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\IdeaController;
+
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Route;
@@ -7,58 +9,25 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Idea;
 
 //Get all ideas
-Route::get('/ideas', function () {
-    //$ideas = session('ideas', []);
-
-    $ideas = Idea::all();
-
-    //dd($ideas);
-
-    return view('ideas.index', [
-        'ideas' => $ideas,
-    ]);
-});
+Route::get('/ideas', [IdeaController::class, 'index']);
 
 //Get a single idea
-Route::get('/ideas/{idea}', function (Idea $idea) {
-    return view('ideas.show', [
-        'idea' => $idea,
-    ]);
-});
+Route::get('/ideas/{idea}', [IdeaController::class, 'show']);
 
 
 //Edit an idea by id
-Route::get('/ideas/{idea}/edit', function (Idea $idea) {
-    return view('ideas.edit', [
-        'idea' => $idea,
-    ]);
-});
+Route::get('/ideas/{idea}/edit', [IdeaController::class, 'edit']);
 
 
 //Update an idea by id
-Route::patch('/ideas/{idea}', function (Idea $idea) {
-    $idea->update([
-        'idea' => request('idea'),
-    ]);
+Route::patch('/ideas/{idea}', [IdeaController::class, 'update']);
 
-    return redirect('/ideas');
-});
+//Create a new idea form
 
+Route::get('/ideas/create', [IdeaController::class, 'create']);
 
 //Create a new idea
-Route::post('/ideas', function () {
-    $attributes = request()->validate([
-        'idea' => 'required',
-    ]);
-
-    Idea::create($attributes);
-
-    return redirect('/ideas');
-});
+Route::post('/ideas', [IdeaController::class, 'store']);
 
 //Delete an idea by id
-Route::delete('/ideas/{idea}', function (Idea $idea) {
-    $idea->delete();
-
-    return redirect('/ideas');
-});
+Route::delete('/ideas/{idea}', [IdeaController::class, 'destroy']);
