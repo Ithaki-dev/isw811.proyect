@@ -2,17 +2,24 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::view('/about', 'about');
-
-// Route::view('/contact', 'contact');
-
 Route::get('/', function () {
-    return view('welcome', [
-        'greeting' => 'Hello World',
-        'name' => request('person', 'Guest'),
+    $ideas = session('ideas', []);
+    return view('ideas', [
+        'ideas' => $ideas,
     ]);
+});
+
+Route::post('/ideas', function () {
+    // Handle the form submission here
+
+    $idea = request('idea');
+
+    session()->push('ideas', $idea);
+
+    return redirect('/');
+});
+
+Route::get('delete-ideas', function () {
+    session()->forget('ideas');
+    return redirect('/');
 });
