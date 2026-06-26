@@ -1,15 +1,7 @@
 <x-layout>
-	<form method="POST" action="/ideas">
-		@csrf
-		<div>
-			<label for="idea">New idea</label>
-			<br>
-			<textarea id="idea" name="idea" rows="5"></textarea>
-		</div>
+	<h1 class="text-2xl font-bold">Ideas</h1>
 
-		<button type="submit">Submit</button>
-	</form>
-
+	<a href="/ideas/create" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded">Add New Idea</a>
 	@if ($ideas->isEmpty())
 		<p class="mt-6">No ideas yet.</p>
 	@else
@@ -21,5 +13,8 @@
 				</li>
 			@endforeach
 		</ul>
+		<div class="mt-6">
+			<button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="window.location.href='/ideas/create'">Add New Idea</button>
+		</div>
 	@endif	
 </x-layout>
