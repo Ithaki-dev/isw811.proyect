@@ -3,6 +3,9 @@
 
 	@if ($ideas->isEmpty())
 		<p class="mt-6">No ideas yet.</p>
+		<div class="mt-6">
+			<button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="window.location.href='/ideas/create'">Add New Idea</button>
+		</div>
 	@else
 		<ul class="mt-6 space-y-4">
 			@foreach ($ideas as $idea)
