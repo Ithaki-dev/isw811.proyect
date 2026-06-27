@@ -11,33 +11,27 @@ use App\Http\Controllers\Auth\RegisterController;
 
 use App\Http\Controllers\Auth\SessionController;
 
-//Get all ideas
-Route::get('/ideas', [IdeaController::class, 'index']);
-
-//Get a single idea
-Route::get('/ideas/{idea}', [IdeaController::class, 'show']);
+Route::get('/', function () {
+    return 'Placeholder for the homepage';
+});
 
 
-//Edit an idea by id
-Route::get('/ideas/{idea}/edit', [IdeaController::class, 'edit']);
+Route::middleware('auth')->group(function () {
+    Route::get('/ideas', [IdeaController::class, 'index']);
+    Route::get('/ideas/create', [IdeaController::class, 'create']);
+    Route::post('/ideas', [IdeaController::class, 'store']);
+    Route::get('/ideas/{idea}/edit', [IdeaController::class, 'edit']);
+    Route::patch('/ideas/{idea}', [IdeaController::class, 'update']);
+    Route::delete('/ideas/{idea}', [IdeaController::class, 'destroy']);
+
+    Route::delete('/logout', [SessionController::class, 'destroy'])->name('logout');
+});
 
 
-//Update an idea by id
-Route::patch('/ideas/{idea}', [IdeaController::class, 'update']);
+Route::middleware('guest')->group(function () {
+    Route::get('/register', [RegisterController::class, 'create'])->name('register');
+    Route::post('/register', [RegisterController::class, 'store']);
 
-//Create a new idea form
-
-Route::get('/create', [IdeaController::class, 'create']);
-
-//Create a new idea
-Route::post('/ideas', [IdeaController::class, 'store']);
-
-//Delete an idea by id
-Route::delete('/ideas/{idea}', [IdeaController::class, 'destroy']);
-
-Route::get('/register', [RegisterController::class, 'create']);
-Route::post('/register', [RegisterController::class, 'store']);
-
-Route::get('/login', [SessionController::class, 'create']);
-Route::post('/login', [SessionController::class, 'store']);
-Route::delete('/logout', [SessionController::class, 'destroy']);
+    Route::get('/login', [SessionController::class, 'create'])->name('login');
+    Route::post('/login', [SessionController::class, 'store']);
+});
