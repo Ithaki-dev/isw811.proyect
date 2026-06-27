@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Idea;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreIdeaRequest;
+use Illuminate\Support\Facades\Auth;
 
 class IdeaController extends Controller
 {
@@ -13,10 +14,7 @@ class IdeaController extends Controller
      */
     public function index()
     {
-        $ideas = Idea::query()
-            ->where('user_id', auth()->id())
-            ->get();
-
+        $ideas = Auth::user()->ideas()->get();
         return view('ideas.index', [
             'ideas' => $ideas,
         ]);
@@ -34,18 +32,18 @@ class IdeaController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-    $attributes = $request->validate([
-        'idea' => 'required|string|max:255',
+{
+    $request->validate([
+        'idea' => 'required',
     ]);
 
-    $attributes['user_id'] = auth()->id();
-    $attributes['state'] = 'pending';
-
-    Idea::create($attributes);
+    Auth::user()->ideas()->create([
+        'idea' => $request->idea,
+        'state' => 'pending',
+    ]);
 
     return redirect('/ideas');
-    }
+}
     /**
      * Display the specified resource.
      */
