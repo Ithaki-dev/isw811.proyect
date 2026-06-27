@@ -1,19 +1,13 @@
 
 <x-layout>
-	<form method="POST" action="/ideas/{{ $idea->id }}">
+	<h1 class="text-2xl font-bold">Edit Idea</h1>
+	<form action="/ideas/{{ $idea->id }}" method="POST" class="mt-4">
 		@csrf
 		@method('PATCH')
-		<div>
-			<label for="idea">Edit your idea</label>
-			<br>
-			<textarea id="idea" name="idea" rows="5">"{{ $idea->idea }}"</textarea>
+		<div class="mb-4">
+			<label for="idea" class="block text-gray-700 font-bold mb-2">Idea:</label>
+			<input type="text" name="idea" id="idea" value="{{ $idea ->idea }}" class="border border-gray-300 rounded-lg p-2 w-full" required>
 		</div>
-
-		<button type="submit">Submit</button>
-	</form>
-	<form method="POST" action="/ideas/{{ $idea->id }}">
-			@csrf
-			@method('DELETE')
-			<button type="submit" onclick="return confirm('Are you sure you want to delete this idea?')">Delete</button>
+		<button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Update Idea</button>
 	</form>
 </x-layout>

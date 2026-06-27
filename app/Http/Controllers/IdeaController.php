@@ -31,8 +31,11 @@ class IdeaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreIdeaRequest $request)
-        {
+    public function store(Request $request)
+    {
+    $attributes = $request->validate([
+        'idea' => 'required|string|max:255',
+    ]);
 
     $attributes['state'] = 'pending';
 
@@ -40,7 +43,6 @@ class IdeaController extends Controller
 
     return redirect('/ideas');
     }
-
     /**
      * Display the specified resource.
      */
