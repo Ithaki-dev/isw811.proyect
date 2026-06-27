@@ -13,7 +13,9 @@ class IdeaController extends Controller
      */
     public function index()
     {
-        $ideas = Idea::all();
+        $ideas = Idea::query()
+            ->where('user_id', auth()->id())
+            ->get();
 
         return view('ideas.index', [
             'ideas' => $ideas,
@@ -37,6 +39,7 @@ class IdeaController extends Controller
         'idea' => 'required|string|max:255',
     ]);
 
+    $attributes['user_id'] = auth()->id();
     $attributes['state'] = 'pending';
 
     Idea::create($attributes);
