@@ -23,12 +23,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
 
-        Gate::define('view-admin', function ( $user) {
-            if ($user->id === 1) {
-                return Response::allow();
-            }
-            return Response::deny('You do not have permission to view the admin page.');
-        });
+        // Gate::define('view-admin', function ( $user) {
+        //     if ($user->id === 1) {
+        //         return Response::allow();
+        //     }
+        //     return Response::deny('You do not have permission to view the admin page.');
+        // });
 
 
         $compiledViewsPath = config('view.compiled', storage_path('framework/views'));
