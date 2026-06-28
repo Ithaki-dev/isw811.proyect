@@ -10,9 +10,26 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+
     server: {
-        watch: {
-            ignored: ['**/storage/framework/views/**'],
-        },
+        host: '0.0.0.0',
+        port: 5173,
+        strictPort: true,
+
+        origin: 'http://isw811.local:5173',
+
+    cors: {
+        origin: '*',
     },
+
+    hmr: {
+        host: 'isw811.local',
+        protocol: 'ws',
+        port: 5173,
+    },
+
+    watch: {
+        ignored: ['**/storage/framework/views/**'],
+    },
+},
 });
