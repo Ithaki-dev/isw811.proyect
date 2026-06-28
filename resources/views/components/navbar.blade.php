@@ -1,52 +1,38 @@
-<div class="navbar bg-base-100 shadow-sm">
-    <div class="flex-none">
-        <button class="btn btn-square btn-ghost">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-        </button>
-    </div>
-
+<div class="navbar bg-base-200 shadow-sm px-4">
     <div class="flex-1">
-        <a href="/ideas" class="btn btn-ghost text-xl">ISW811</a>
+        <a href="/ideas" class="btn btn-ghost text-xl font-semibold">ISW811</a>
     </div>
 
-    <div class="flex-none">
-        <button class="btn btn-square btn-ghost">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0" />
-            </svg>
-        </button>
-    </div>
+    <div class="flex-none gap-2">
+        @guest
+            <a href="/register" class="btn btn-ghost btn-sm">Register</a>
+            <a href="/login" class="btn btn-primary btn-sm">Login</a>
+        @endguest
 
-    @guest
-        <div class="flex-none">
-            <a href="/register" class="btn btn-ghost">Register</a>
-            <a href="/login" class="btn btn-ghost">Login</a>
-        </div>
-    @endguest
+        @auth
+            @can('view-admin')
+                <a href="/admin" class="btn btn-ghost btn-sm">Admin</a>
+            @endcan
 
-    @auth
-
-        @can('view-admin')
-            <div class="flex-none">
-                <a href="/admin" class="btn btn-ghost">Admin</a>
+            <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar placeholder">
+                    <div class="bg-neutral text-neutral-content w-9 rounded-full">
+                        <span class="text-sm">{{ substr(auth()->user()->name, 0, 1) }}</span>
+                    </div>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-48 p-2 shadow border border-base-300">
+                    <li class="menu-title text-xs">{{ auth()->user()->name }}</li>
+                    <li class="menu-title text-xs opacity-50">{{ auth()->user()->email }}</li>
+                    <div class="divider my-1"></div>
+                    <li>
+                        <form action="/logout" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="w-full text-left text-error">Logout</button>
+                        </form>
+                    </li>
+                </ul>
             </div>
-        @endcan
-
-        <div class="flex-none">
-            <form action="/logout" method="POST">
-                @csrf
-                @method('DELETE')
-
-                <button type="submit" class="btn btn-ghost">
-                    Logout
-                </button>
-            </form>
-        </div>
-
-    @endauth
-
+        @endauth
+    </div>
 </div>
