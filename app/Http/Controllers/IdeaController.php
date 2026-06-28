@@ -38,10 +38,13 @@ class IdeaController extends Controller
         'idea' => 'required',
     ]);
 
-    Auth::user()->ideas()->create([
+    $idea = Auth::user()->ideas()->create([
         'idea' => $request->idea,
         'state' => 'pending',
     ]);
+
+    //notify the user that the idea has been created successfully
+    Auth::user()->notify(new \App\Notifications\IdeaPublished($idea));
 
     return redirect('/ideas');
 }
