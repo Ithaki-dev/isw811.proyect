@@ -21,7 +21,9 @@ Se enfocó en la configuración de estilos globales y en cómo aplicar un tema c
 - `resources/views/layouts/app.blade.php` (o el layout principal utilizado)
 
 ### Evidencia
-- [ ] Captura de la aplicación con el nuevo tema aplicado (theme.png).
+````carousel
+![Captura de la aplicación con el nuevo tema](docs/img/theme.png)
+````
 
 ### Problemas encontrados y solución
 - A veces los cambios en el CSS no se reflejaban inmediatamente en el navegador. Se solucionó asegurándose de que el comando `npm run dev` estuviera activo y que la directiva `@vite` estuviera correctamente incluida en el layout principal.

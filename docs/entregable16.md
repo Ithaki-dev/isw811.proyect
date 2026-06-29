@@ -18,8 +18,11 @@ Se practicó la creación de políticas para modelos (como `IdeaPolicy`), donde 
 - `app/Http/Controllers/IdeaController.php`
 
 ### Evidencia
-- [ ] Captura de la política de la aplicación (app_policy.png).
-- [ ] Captura de la política de ideas (idea_policy.png).
+````carousel
+![Captura de la política de la aplicación](docs/img/app_policy.png)
+<!-- slide -->
+![Captura de la política de ideas](docs/img/idea_policy.png)
+````
 
 ### Problemas encontrados y solucion
 - Se identificó la confusión inicial sobre cuándo usar Gates frente a Policies. Se aclaró que las Policies son preferibles cuando la autorización depende de un modelo específico (ej. "¿Puede este usuario editar *esta* idea en particular?"), mientras que las Gates son mejores para acciones generales (ej. "¿Es el usuario un administrador?").

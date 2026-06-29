@@ -18,8 +18,11 @@ Se practicó la creación de Gates en el `AppServiceProvider` y su aplicación e
 - `resources/views/admin/dashboard.blade.php`
 
 ### Evidencia
-- [ ] Captura de acceso a App Service (app_service.png).
-- [ ] Captura de acceso a panel de Admin (admin.png).
+````carousel
+![Captura de acceso a App Service](docs/img/app_service.png)
+<!-- slide -->
+![Captura de acceso a panel de Admin](docs/img/admin.png)
+````
 
 ### Problemas encontrados y solucion
 - Una confusión común es mezclar autenticación con autorización. Se aclaró que la autenticación responde a "¿Quién eres?" (Login), mientras que la autorización (Gates) responde a "¿Qué tienes permitido hacer?".

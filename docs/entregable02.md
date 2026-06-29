@@ -21,8 +21,11 @@ Además, se practicó el uso de `{{ $attributes }}` para recibir atributos HTML 
 - `routes/web.php`
 
 ### Evidencia
-- [ ] Captura de la barra de navegación creada: [docs/img/layout.png](docs/img/layout.png)
-- [ ] Captura de la vista principal usando el componente layout: [docs/img/card.png](docs/img/card.png)
+````carousel
+![Captura de la barra de navegación creada](docs/img/layout.png)
+<!-- slide -->
+![Captura de la vista principal usando el componente layout](docs/img/card.png)
+````
 
 
 ### Problemas encontrados y solución

@@ -64,13 +64,11 @@ Estas rutas permiten que el usuario acceda a la vista de creación (`/ideas/crea
 
 ## Capturas
 
-### **Captura 1: Archivo de Controlador `app/Http/Controllers/IdeaController.php`**
-
-![Archivo de Controlador](docs/img/controller.png)
-
-### **Captura 2: Archivo de Rutas `routes/web.php`**
-
-![Archivo de Rutas](docs/img/routes_controllers.png)
+````carousel
+![Captura del archivo de controlador](docs/img/controller.png)
+<!-- slide -->
+![Captura del archivo de rutas](docs/img/routes_controllers.png)
+````
 
 ## Apuntes para Próximos Episodios
 

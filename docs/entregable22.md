@@ -72,7 +72,7 @@ php artisan test
 
 ### Evidencia
 
-![Ejecución exitosa de los tests de Pest en el entorno virtual](img/pest_test.png)
+![Ejecución exitosa de los tests de Pest en el entorno virtual](docs/img/pest_test.png)
 
 ---
 

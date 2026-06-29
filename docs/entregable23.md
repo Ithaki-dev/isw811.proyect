@@ -62,9 +62,9 @@ npm run dev
 ### Evidencia
 
 ````carousel
-![Formulario de inicio de sesión con el nuevo tema visual](img/login_page.png)
+![Formulario de inicio de sesión con el nuevo tema visual](docs/img/login_page.png)
 <!-- slide -->
-![Flujo de rutas y comportamiento del login/registro](img/login_route.png)
+![Flujo de rutas y comportamiento del login/registro](docs/img/login_route.png)
 ````
 
 ---

@@ -63,13 +63,10 @@ El modelo `Idea` se utiliza para interactuar con la base de datos y manipular lo
 
 ## Capturas
 
-### **Captura 1: Componente de Errores en Formulario**
-
-![Componente de Errores](docs/img/error_component.png)
-
-### **Captura 2: Modelo de Ideas (`app/Models/Idea.php`)**
-
-![Modelo de Ideas](docs/img/idea_model.png)
+````carousel
+![Captura del componente de errores en el formulario](docs/img/error_component.png)
+<!-- slide -->
+![Captura del modelo de ideas](docs/img/idea_model.png)
 
 ## Apuntes para Próximos Episodios
 

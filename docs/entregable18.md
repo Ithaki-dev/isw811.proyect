@@ -60,8 +60,11 @@ php artisan tinker
 
 ### Evidencia
 
-- [ ] Captura del correo recibido en Mailpit (`mail.png`)
-- [ ] Captura de la notificación enviada en la aplicación (`notification.png`)
+````carousel
+![Captura del correo recibido en Mailpit](docs/img/mail.png)
+<!-- slide -->
+![Captura de la notificación enviada en la aplicación](docs/img/notification.png)
+````
 
 ---
 

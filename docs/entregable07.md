@@ -22,9 +22,13 @@ En este episodio aprendimos a implementar un **CRUD (Create, Read, Update, Delet
 - `resources/views/ideas/edit.blade.php`
 
 ### Evidencia
-- Captura de la aplicación mostrando las ideas obtenidas desde la base de datos: ![Listado de ideas](docs/img/ideas_list.png)
-- Captura de la vista para editar una idea: ![Vista de edición](docs/img/edit_ideas.png)
-- Captura de las rutas definidas en `web.php`: ![Rutas](docs/img/crud.png)
+````carousel
+![Captura de la aplicación mostrando las ideas obtenidas desde la base de datos](docs/img/ideas_list.png)
+<!-- slide -->
+![Captura de la vista para editar una idea](docs/img/edit_ideas.png)
+<!-- slide -->
+![Captura de las rutas definidas en web.php](docs/img/crud.png)
+````
 
 ### Problemas encontrados y soluciones
 - Al intentar crear un nuevo registro, se encontró que el formulario de edición no estaba vinculado correctamente a los campos del modelo. Se solucionó utilizando `{{ old('idea') }}` para mantener el valor en caso de error.

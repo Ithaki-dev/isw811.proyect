@@ -62,9 +62,9 @@ Esta configuracion le indica a Laravel que los jobs pendientes se deben guardar 
 
 ### Evidencia
 
-- [ ] Captura de la actualizacion de una idea (`update_idea.png`)
-
-![Actualizacion de idea](img/update_idea.png)
+````carousel
+![Actualizacion de idea](docs/img/update_idea.png)
+````
 
 ---
 

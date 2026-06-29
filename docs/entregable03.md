@@ -20,8 +20,9 @@ Tambien se uso `request('person', 'Guest')` para obtener un parametro opcional d
 - `resources/views/components/card.blade.php`
 
 ### Evidencia
-- [ ] Captura de la imagen de variables utilizada como referencia: [docs/img/variables.png](docs/img/variables.png)
-
+````carousel
+![Captura de la imagen de variables utilizada como referencia](docs/img/variables.png)
+````
 
 ### Problemas encontrados y solucion
 - Al pasar datos desde la ruta a la vista fue necesario mantener la estructura del arreglo con las mismas llaves que se usaban en Blade para evitar errores al imprimir los valores.

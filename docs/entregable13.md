@@ -68,13 +68,11 @@ Route::middleware(['admin'])->group(function () {
 
 ## Capturas
 
-### **Captura 1: Configuración del Middleware (`app/Http/Middleware/EnsureUserIsAdmin.php`)**
-
-![Configuración del Middleware](docs/img/middleware.png)
-
-### **Captura 2: Uso de Middlewares en Rutas (`routes/web.php`)**
-
-![Uso de Middlewares en Rutas](docs/img/idea_middleware.png)
+````carousel
+![Captura de la configuración del Middleware](docs/img/middleware.png)
+<!-- slide -->
+![Captura del uso de Middlewares en Rutas](docs/img/idea_middleware.png)
+````
 
 ## Archivos Modificados
 

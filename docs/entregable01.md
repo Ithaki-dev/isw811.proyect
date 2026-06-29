@@ -18,9 +18,13 @@ En este primer episodio se revisaron las bases del enrutamiento en Laravel. Se m
 - `resources/views/contact.blade.php`
 
 ### Evidencia
-- [ ] Captura de la página principal personalizada: [docs/img/routes.png](docs/img/routes.png)
-- [ ] Captura de la vista `/about`: [docs/img/about.png](docs/img/about.png)
-- [ ] Captura de la vista `/contact`: [docs/img/contact.png](docs/img/contact.png)
+````carousel
+![Captura de la página principal personalizada](docs/img/routes.png)
+<!-- slide -->
+![Captura de la vista /about](docs/img/about.png)
+<!-- slide -->
+![Captura de la vista /contact](docs/img/contact.png)
+````
 
 ### Problemas encontrados y solución
 - La ruta `/contact` no tenía vista asociada al revisar el proyecto, así que se creó `resources/views/contact.blade.php` para mantener coherencia entre la documentación y el comportamiento de la aplicación.

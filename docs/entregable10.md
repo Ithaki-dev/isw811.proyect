@@ -107,13 +107,10 @@ class IdeaController extends Controller
 
 ## Capturas
 
-### **Captura 1: Archivo de solicitud `app/Http/Requests/StoreIdeaRequest.php`**
-
-![Solicitud de Formulario](docs/img/store_idea_request.png)
-
-### **Captura 2: Controlador `app/Http/Controllers/IdeaController.php` con la clase de solicitud**
-
-![Controlador](docs/img/idea_controller_request.png)
+````carousel
+![Captura de la solicitud de formulario](docs/img/store_idea_request.png)
+<!--slide -->
+![Captura del controlador](docs/img/idea_controller_request.png)
 
 ## Archivos Modificados
 

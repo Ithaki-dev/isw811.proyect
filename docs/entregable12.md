@@ -93,13 +93,11 @@ El cierre de sesión se maneja automáticamente con el método `logout()` propor
 
 ## Capturas
 
-### **Captura 1: Página de Inicio de Sesión (`resources/views/auth/login.blade.php`)**
-
+````carousel
 ![Página de Inicio de Sesión](docs/img/login_page.png)
-
-### **Captura 2: Rutas de Autenticación en `routes/web.php`**
-
+<!-- slide -->
 ![Rutas de Autenticación](docs/img/login_route.png)
+````
 
 ## Archivos Modificados
 

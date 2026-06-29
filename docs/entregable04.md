@@ -18,8 +18,9 @@ Tambien se hablo por encima de directivas importantes como `@auth` y `@guest`, q
 - `resources/views/welcome.blade.php`
 
 ### Evidencia
-- [ ] Captura de la vista con ejemplos de directivas Blade.
-- [ ] Captura de referencia a las directivas de ejemplo: [docs/img/directivas.png](docs/img/directivas.png)
+````carousel
+![Captura de la vista con ejemplos de directivas Blade](docs/img/directivas.png)
+````
 
 ### Problemas encontrados y solucion
 - Al trabajar con directivas condicionales fue importante revisar que la variable `tasks` estuviera disponible desde la ruta para evitar errores al evaluar `count($tasks)`.

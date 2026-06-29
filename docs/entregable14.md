@@ -12,8 +12,11 @@ php artisan make:model User
 - app/Models/User.php
 
 ### Evidencia
-![Relación Idea](img/idea_rela.png)
-![Relación User](img/user_rela.png)
+````carousel
+![Captura de la relación entre Idea y User](docs/img/idea_rela.png)
+<!-- slide -->
+![Captura de la relación entre User y Idea](docs/img/user_rela.png)
+````
 
 ### Comentarios
 Se comprendió cómo definir y utilizar relaciones (como belongsTo, hasMany, etc.) para acceder a datos vinculados de manera sencilla, evitando la necesidad de realizar consultas manuales complejas y mejorando la legibilidad del código.

@@ -71,7 +71,7 @@ composer run dev
 
 ### Evidencia
 
-![Configuración de Laravel Boost](img/boost.png)
+![Configuración de Laravel Boost](docs/img/boost.png)
 
 ---
 

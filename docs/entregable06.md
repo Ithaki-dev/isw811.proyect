@@ -24,9 +24,13 @@ Tambien se practico el uso de los modelos en las rutas para obtener las ideas gu
 - `resources/views/ideas.blade.php`
 
 ### Evidencia
-- [ ] Captura del modelo `Idea`.
-- [ ] Captura de la migracion ejecutada con `php artisan migrate`.
-- [ ] Captura de la aplicacion mostrando las ideas obtenidas desde la base de datos.
+````carousel
+![Captura del modelo Idea](docs/img/model.png)
+<!-- slide -->
+![Captura de la migracion ejecutada con php artisan migrate](docs/img/migrate.png)
+<!-- slide -->
+![Captura de la aplicacion mostrando las ideas obtenidas desde la base de datos](docs/img/ideas.png)
+````
 
 ### Problemas encontrados y solucion
 - Al trabajar con datos desde la base de datos fue importante usar el modelo `Idea` en lugar de guardar solo valores en session, porque asi los registros quedan persistidos y disponibles despues de refrescar la aplicacion.

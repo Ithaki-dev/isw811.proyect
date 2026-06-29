@@ -103,12 +103,11 @@ php artisan make:factory IdeaFactory
 
 ### Evidencia
 
-- [ ] Captura de los tests principales ejecutados (`test.png`)
-- [ ] Captura de los tests del CRUD de ideas (`crud_test.png`)
-
-![Tests ejecutados](img/test.png)
-
-![Tests del CRUD de ideas](img/crud_test.png)
+````carousel
+![Tests ejecutados](docs/img/test.png)
+<!-- slide -->
+![Tests del CRUD de ideas](docs/img/crud_test.png)
+````
 
 ---
 
