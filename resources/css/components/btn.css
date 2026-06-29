@@ -1,0 +1,31 @@
+.btn-base {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 cursor-pointer;
+}
+
+.btn-primary {
+    @apply btn-base bg-slate-800 text-white hover:bg-slate-700 active:scale-95;
+}
+
+.btn-secondary {
+    @apply btn-base bg-slate-100 text-slate-700 hover:bg-slate-200 active:scale-95;
+}
+
+.btn-ghost {
+    @apply btn-base bg-transparent text-slate-600 hover:bg-slate-100 active:scale-95;
+}
+
+.btn-danger {
+    @apply btn-base bg-red-500 text-white hover:bg-red-600 active:scale-95;
+}
+
+.btn-outline {
+    @apply btn-base border border-slate-300 text-slate-700 hover:bg-slate-50 active:scale-95;
+}
+
+.btn-sm {
+    @apply px-3 py-1.5 text-xs;
+}
+
+.btn-lg {
+    @apply px-6 py-3 text-base;
+}

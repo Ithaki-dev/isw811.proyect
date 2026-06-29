@@ -1,0 +1,23 @@
+.form-group {
+    @apply flex flex-col gap-1 mb-4;
+}
+
+.form-label {
+    @apply text-sm font-medium text-slate-700;
+}
+
+.form-input {
+    @apply w-full px-3 py-2 rounded-lg border border-slate-300 bg-white text-slate-800 text-sm placeholder-slate-400 transition focus:outline-none focus:ring-2 focus:ring-slate-400 focus:border-transparent;
+}
+
+.form-input-error {
+    @apply form-input border-red-400 focus:ring-red-400;
+}
+
+.form-error {
+    @apply text-xs text-red-500 mt-1;
+}
+
+.form-card {
+    @apply bg-white border border-slate-200 rounded-xl shadow-sm p-8 w-full max-w-sm mx-auto;
+}
