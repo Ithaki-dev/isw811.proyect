@@ -25,6 +25,6 @@
             &copy; {{ date('Y') }} ISW811 — All rights reserved.
         </div>
     </footer>
-
+    <x-flash />
 </body>
 </html>
