@@ -1,31 +1,93 @@
-.btn-base {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 cursor-pointer;
+@utility btn-base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 150ms;
+    cursor: pointer;
 }
 
-.btn-primary {
-    @apply btn-base bg-slate-800 text-white hover:bg-slate-700 active:scale-95;
+@utility btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 150ms;
+    cursor: pointer;
+    background-color: #0f172a;
+    color: #ffffff;
 }
 
-.btn-secondary {
-    @apply btn-base bg-slate-100 text-slate-700 hover:bg-slate-200 active:scale-95;
+@utility btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 150ms;
+    cursor: pointer;
+    background-color: #f1f5f9;
+    color: #334155;
 }
 
-.btn-ghost {
-    @apply btn-base bg-transparent text-slate-600 hover:bg-slate-100 active:scale-95;
+@utility btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 150ms;
+    cursor: pointer;
+    background-color: transparent;
+    color: #475569;
 }
 
-.btn-danger {
-    @apply btn-base bg-red-500 text-white hover:bg-red-600 active:scale-95;
+@utility btn-danger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 150ms;
+    cursor: pointer;
+    background-color: #ef4444;
+    color: #ffffff;
 }
 
-.btn-outline {
-    @apply btn-base border border-slate-300 text-slate-700 hover:bg-slate-50 active:scale-95;
+@utility btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 150ms;
+    cursor: pointer;
+    border: 1px solid #cbd5e1;
+    color: #334155;
 }
 
-.btn-sm {
-    @apply px-3 py-1.5 text-xs;
+@utility btn-sm {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
 }
 
-.btn-lg {
-    @apply px-6 py-3 text-base;
+@utility btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
 }

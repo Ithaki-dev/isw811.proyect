@@ -1,23 +1,53 @@
-.form-group {
-    @apply flex flex-col gap-1 mb-4;
+@utility form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
 }
 
-.form-label {
-    @apply text-sm font-medium text-slate-700;
+@utility form-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #334155;
 }
 
-.form-input {
-    @apply w-full px-3 py-2 rounded-lg border border-slate-300 bg-white text-slate-800 text-sm placeholder-slate-400 transition focus:outline-none focus:ring-2 focus:ring-slate-400 focus:border-transparent;
+@utility form-input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #cbd5e1;
+    background-color: #ffffff;
+    color: #1e293b;
+    font-size: 0.875rem;
+    transition: all 150ms;
+    outline: none;
 }
 
-.form-input-error {
-    @apply form-input border-red-400 focus:ring-red-400;
+@utility form-input-error {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #f87171;
+    background-color: #ffffff;
+    color: #1e293b;
+    font-size: 0.875rem;
+    transition: all 150ms;
+    outline: none;
 }
 
-.form-error {
-    @apply text-xs text-red-500 mt-1;
+@utility form-error {
+    font-size: 0.75rem;
+    color: #ef4444;
+    margin-top: 0.25rem;
 }
 
-.form-card {
-    @apply bg-white border border-slate-200 rounded-xl shadow-sm p-8 w-full max-w-sm mx-auto;
+@utility form-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    width: 100%;
+    max-width: 24rem;
+    margin: 0 auto;
 }
