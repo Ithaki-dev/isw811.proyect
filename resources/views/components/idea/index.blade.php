@@ -1,7 +1,7 @@
 <x-layout title="Ideas">
     <div class="flex items-center justify-between mb-8">
         <h1 class="text-2xl font-semibold text-slate-800">Ideas</h1>
-        <a href="/ideas/create" class="btn-primary">+ New idea</a>
+        <x-idea.create-modal />
     </div>
     <!-- Filter for ideas -->
     <!--add the count to the button-->
