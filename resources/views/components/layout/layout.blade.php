@@ -26,6 +26,8 @@
             &copy; {{ date('Y') }} ISW811 — All rights reserved.
         </div>
     </footer>
-    <x-flash />
+    @if (session('success'))
+        <x-flash />
+    @endif
 </body>
 </html>
