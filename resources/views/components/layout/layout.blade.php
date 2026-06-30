@@ -20,6 +20,7 @@
         </div>
     </main>
 
+
     <footer class="bg-white border-t border-slate-200 py-4">
         <div class="max-w-5xl mx-auto px-6 text-center text-sm text-slate-400">
             &copy; {{ date('Y') }} ISW811 — All rights reserved.
