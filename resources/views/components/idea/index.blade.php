@@ -3,6 +3,14 @@
         <h1 class="text-2xl font-semibold text-slate-800">Ideas</h1>
         <a href="/ideas/create" class="btn-primary">+ New idea</a>
     </div>
+    <!-- Filter for ideas -->
+    <!--add the count to the button-->
+    <div class="flex gap-2 mb-6">
+        @foreach ($statusCounts as $status => $count)
+            <a href="/ideas?status={{ $status }}"
+                class="btn {{ request('status') == $status ? 'btn-primary' : 'btn-outline' }}">{{ ucfirst($status) }} {{ $count }}</a>
+        @endforeach
+    </div>
 
     @if ($ideas->isEmpty())
         <div class="bg-white border border-slate-200 rounded-xl p-16 text-center">
