@@ -15,7 +15,9 @@
     </div>
 
     <div>
-        <h2 class="font-medium text-slate-800 leading-snug">{{ $idea->title }}</h2>
+        <a href="/ideas/{{ $idea->id }}">
+            <h2 class="font-medium text-slate-800 leading-snug">{{ $idea->title }}</h2>
+        </a>
         <p class="text-sm text-slate-500 mt-1 line-clamp-2">{{ $idea->description }}</p>
     </div>
 
