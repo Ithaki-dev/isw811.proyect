@@ -6,6 +6,7 @@ use App\Http\Requests\StoreIdeaRequest;
 use App\Http\Requests\UpdateIdeaRequest;
 use App\Models\Idea;
 use Illuminate\Support\Facades\Auth;
+use App\Enums\IdeaStatus;
 
 class IdeaController extends Controller
 {
@@ -15,9 +16,23 @@ class IdeaController extends Controller
     public function index()
     {
         // Obtener todas las ideas
-        $ideas = Auth::user()->ideas()->get();
+        $ideas = Auth::user()->ideas()->when(request('status'), function ($query) {
+            $query->where('status', request('status'));
+        })->get();
+
+        // select status, count(*) from Ideas group by status
+        $ideasCount = Auth::user()->ideas()
+            ->select('status', \DB::raw('count(*) as count'))
+            ->groupBy('status')
+            ->pluck('count', 'status');
+
+        // Todos los estatus
+        $statusCounts = collect(IdeaStatus::cases())
+            ->mapWithKeys(fn($status) => [$status->value => $ideasCount->get($status->value, 0)])
+            ->put('all', $ideasCount->sum());
+
         // Vista de ideas
-        return view('components.idea.index', compact('ideas'));
+        return view('components.idea.index', compact('ideas', 'statusCounts'));
     }
 
     /**
@@ -66,6 +81,11 @@ class IdeaController extends Controller
      */
     public function destroy(Idea $idea)
     {
-        //
+        // si no es el dueño de la idea, no se puede eliminar
+        if ($idea->user_id != Auth::id()) {
+            abort(403);
+        }
+        $idea->delete();
+        return redirect()->route('ideas.index')->with('success', 'Idea deleted successfully');
     }
 }
