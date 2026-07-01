@@ -21,17 +21,33 @@
         {{-- Main card --}}
         <div class="bg-white border border-slate-200 rounded-xl p-8 flex flex-col gap-6">
 
-            <div>
-                <h1 class="text-2xl font-semibold text-slate-800">{{ $idea->title }}</h1>
-                <p class="text-sm text-slate-400 mt-1">
-                    By {{ $idea->user->name }} · {{ $idea->created_at->diffForHumans() }}
-                </p>
+            {{-- Title & meta --}}
+            <div class="flex items-start justify-between gap-4">
+                <div>
+                    <h1 class="text-2xl font-semibold text-slate-800">{{ $idea->title }}</h1>
+                    <p class="text-sm text-slate-400 mt-1">
+                        By {{ $idea->user->name }} · {{ $idea->created_at->diffForHumans() }}
+                    </p>
+                </div>
+                <div class="flex items-center gap-2 flex-shrink-0">
+                    <x-idea.edit-modal :idea="$idea" />
+                    <form action="/ideas/{{ $idea->id }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit"
+                                onclick="return confirm('Delete this idea?')"
+                                class="btn-danger btn-sm">
+                            Delete
+                        </button>
+                    </form>
+                </div>
             </div>
 
+            {{-- Description --}}
             <p class="text-slate-600 leading-relaxed">{{ $idea->description }}</p>
 
             {{-- Links --}}
-            @if ($idea->links->count())
+            @if ($idea->links && $idea->links->count())
                 <div>
                     <h3 class="text-sm font-medium text-slate-700 mb-2">Links</h3>
                     <div class="flex flex-col gap-1">
@@ -62,19 +78,6 @@
                 </div>
             @endif
 
-            {{-- Actions --}}
-            <div class="flex gap-3 pt-4 border-t border-slate-100">
-                <a href="/ideas/{{ $idea->id }}/edit" class="btn-outline">Edit</a>
-                <form action="/ideas/{{ $idea->id }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit"
-                            onclick="return confirm('Delete this idea?')"
-                            class="btn-danger">
-                        Delete
-                    </button>
-                </form>
-            </div>
         </div>
     </div>
 </x-layout>

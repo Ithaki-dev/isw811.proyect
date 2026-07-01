@@ -21,7 +21,7 @@
         <p class="text-sm text-slate-500 mt-1 line-clamp-2">{{ $idea->description }}</p>
     </div>
 
-    @if ($idea->links->count())
+    @if ($idea->links && $idea->links->count())
         <div class="flex flex-wrap gap-1">
             @foreach ($idea->links as $link)
                 <a href="{{ $link }}" target="_blank"
@@ -32,17 +32,4 @@
         </div>
     @endif
 
-    <div class="flex gap-2 pt-2 border-t border-slate-100">
-        <a href="/ideas/{{ $idea->id }}" class="btn-ghost btn-sm flex-1 text-center">View</a>
-        <a href="/ideas/{{ $idea->id }}/edit" class="btn-ghost btn-sm flex-1 text-center">Edit</a>
-        <form action="/ideas/{{ $idea->id }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit"
-                    onclick="return confirm('Delete this idea?')"
-                    class="btn-ghost btn-sm text-red-500 hover:text-red-600">
-                Delete
-            </button>
-        </form>
-    </div>
 </div>
