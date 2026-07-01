@@ -2,89 +2,89 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\IdeaStatus;
 use App\Http\Requests\StoreIdeaRequest;
 use App\Http\Requests\UpdateIdeaRequest;
 use App\Models\Idea;
 use Illuminate\Support\Facades\Auth;
-use App\Enums\IdeaStatus;
+use Illuminate\Support\Facades\DB;
 
 class IdeaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        // Obtener todas las ideas
-        $ideas = Auth::user()->ideas()->when(request('status'), function ($query) {
-            $query->where('status', request('status'));
-        })->get();
+        $ideas = Auth::user()->ideas()
+            ->when(request('status'), function ($query) {
+                $query->where('status', request('status'));
+            })
+            ->latest()
+            ->get();
 
-        // select status, count(*) from Ideas group by status
         $ideasCount = Auth::user()->ideas()
-            ->select('status', \DB::raw('count(*) as count'))
+            ->select('status', DB::raw('count(*) as count'))
             ->groupBy('status')
             ->pluck('count', 'status');
 
-        // Todos los estatus
         $statusCounts = collect(IdeaStatus::cases())
             ->mapWithKeys(fn($status) => [$status->value => $ideasCount->get($status->value, 0)])
             ->put('all', $ideasCount->sum());
 
-        // Vista de ideas
         return view('components.idea.index', compact('ideas', 'statusCounts'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('components.idea.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreIdeaRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        $idea = new Idea();
+        $idea->title = $validated['title'];
+        $idea->description = $validated['description'];
+        $idea->links = collect(explode("\n", $validated['links'] ?? ''))
+            ->map(fn($link) => trim($link))
+            ->filter()
+            ->values()
+            ->toArray();
+        $idea->status = IdeaStatus::PENDING;
+        $idea->user_id = Auth::id();
+        $idea->save();
+
+        return redirect()->route('ideas.index')->with('success', 'Idea created successfully');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Idea $idea)
     {
-        $idea = Idea::findOrFail($idea->id);
         return view('components.idea.show', compact('idea'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Idea $idea)
     {
-        //
+        $this->authorize('update', $idea);
+        return view('components.idea.edit', compact('idea'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateIdeaRequest $request, Idea $idea)
     {
-        //
+        $this->authorize('update', $idea);
+
+        $validated = $request->validated();
+
+        $idea->title = $validated['title'];
+        $idea->description = $validated['description'];
+        $idea->links = $validated['links'] ?? [];
+        $idea->status = $validated['status'];
+        $idea->save();
+
+        return redirect()->route('ideas.show', $idea)->with('success', 'Idea updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Idea $idea)
     {
-        // si no es el dueño de la idea, no se puede eliminar
-        if ($idea->user_id != Auth::id()) {
-            abort(403);
-        }
+        $this->authorize('delete', $idea);
         $idea->delete();
         return redirect()->route('ideas.index')->with('success', 'Idea deleted successfully');
     }
